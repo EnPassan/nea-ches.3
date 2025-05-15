@@ -21,7 +21,13 @@ class Centre:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-                    
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.button == 1:
+                        x, y = event.pos
+                        row = y // SQRSIZE
+                        col = x // SQRSIZE
+                        self.control.handling(row, col)
+                        print({row},{col})
             pygame.display.update()
 
 centre = Centre()
